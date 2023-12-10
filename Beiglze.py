@@ -1,8 +1,8 @@
-import random# 1 импортируем все необходимые модули
-# 2 обЪявляем глобальные переменные
-len_digits = 3 # длинна угадываемого числа
+import random   #  импортируем все необходимые модули
+#  обЪявляем глобальные переменные
+len_digits = 3  # длинна угадываемого числа
 max_guesses = 10 # количество попыток
-# 3 инструкция main с правилами игры
+#  инструкция main с правилами игры
 def main():
     print(f'В дедуктивной логической игре <<Бейглз>> необходимо по подсказкам'
           f'угадать секретное число из {len_digits} цифр. В ответ на ваши попытки'
@@ -25,17 +25,16 @@ def main():
                 clues = getClues(guess, secret_num)
                 print(clues)
                 numGuesses += 1
-        if guess == secret_num:
-            break  # Правильно, выходим из цикла.
-        if numGuesses > max_guesses:
-            print('You ran out of guesses.')
-        print('The answer was {}.'.format(secretNum))
+            if guess == secret_num:
+                break  # Правильно, выходим из цикла.
+            if numGuesses > max_guesses:
+                print('Вы использовали все попытки')
+                print('Ответ -  {}.'.format(secret_num))
         # Спрашиваем игрока, хочет ли он сыграть еще раз.
         print('Хотите сыграть еще раз? (да или нет)')
         if not input('> ').lower().startswith('д'):
             break
         print('Спасибо за игру!!!')
-
 def getsecretNum():#функция для создания секретного числа
     numbers=list('0123456789')
     random.shuffle(numbers)
@@ -49,6 +48,7 @@ def getsecretNum():#функция для создания секретного 
 def getClues(guess,secret_num):
     if guess==secret_num:
         return 'Вы угадали!!! Поздравляю!!!!'
+
     clues = []           # список подсказок
 
     for i in range(len(guess)):
@@ -57,7 +57,7 @@ def getClues(guess,secret_num):
         elif guess[i] in secret_num:
             clues.append('Pico')
     if len(clues)==0:
-        return Bagles
+        return 'Bagles'
     else:
         clues.sort()
         return ' '.join(clues)
